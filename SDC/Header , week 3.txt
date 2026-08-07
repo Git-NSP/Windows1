@@ -1,0 +1,111 @@
+import Header from "./components/Header";
+import ProductCard from "./components/ProductCard";
+
+function App() {
+  const products = [
+    {
+      id: 1,
+      name: "Laptop",
+      price: 55000,
+      category: "Electronics"
+    },
+    {
+      id: 2,
+      name: "Shoes",
+      price: 2500,
+      category: "Footwear"
+    },
+    {
+      id: 3,
+      name: "Watch",
+      price: 3000,
+      category: "Accessories"
+    }
+  ];
+
+  return (
+    <div>
+      <Header />
+
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          name={product.name}
+          price={product.price}
+          category={product.category}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default App;
+
+
+---------------
+
+
+function Header() {
+  return (
+    <header>
+      <h1>Online Shopping</h1>
+    </header>
+  );
+}
+
+export default Header;
+
+
+-------------
+
+
+
+function ProductCard({ name, price, category }) {
+  const buyProduct = () => {
+    alert(`${name} purchased successfully!`);
+  };
+
+  return (
+    <div
+      style={{
+        border: "1px solid black",
+        padding: "15px",
+        margin: "10px",
+        width: "250px",
+        borderRadius: "8px"
+      }}
+    >
+      <h2>{name}</h2>
+      <p><strong>Price:</strong> ₹{price}</p>
+      <p><strong>Category:</strong> {category}</p>
+
+      <button onClick={buyProduct}>
+        Buy Now
+      </button>
+    </div>
+  );
+}
+
+export default ProductCard;
+
+----------------------------------
+
+
+
+
+main.jsx code
+
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+
+

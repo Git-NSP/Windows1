@@ -1,0 +1,32 @@
+ 
+Week1. 
+ 
+   Experiment 1: Recording in Context Sensitive Mode and Analog Mode (Selenium IDE) 
+ 
+           Tools/Requirements: 
+          • Selenium IDE extension (Chrome/Edge) 
+        • Any demo site for drag-and-drop (optional) 
+       Procedure: 
+      1. Open Chrome/Edge and install the Selenium IDE extension from the browser extensions store. 
+      2. Click the Extensions icon and open Selenium IDE. 
+      3. Click 'Create a new project' and enter a project name. 
+      4. Click 'Add new test' and name the test case (e.g., TC_Record_Google). 
+      5. Click the red 'Record' button. 
+      6. Enter the base URL (e.g., https://www.google.com) and click 'Start Recording'. 
+      7. Perform actions: click the search box, type a keyword, press Enter, click a result, then go back. 
+      8. Stop recording and review the generated commands (open, click, type, assert). 
+      9. Run the test using the 'Run current test' (play) button. 
+     10. For analog-style actions: try recording a drag-and-drop or slider movement on a demo site and replay it. 
+     11. Save the project in Selenium IDE. 
+     Notes: 
+    • Selenium IDE is mainly context-sensitive (element based). True analog recording is limited. 
+    • For complex gestures use Selenium WebDriver code with the Actions class. 
+ 
+     Output: 
+     Running 'TC_Record_Google' 
+    open | https://www.google.com |  
+    type | name=q | selenium 
+     assertTitle | Google |  
+    Test completed successfully 
+ 
+        Result: PASS

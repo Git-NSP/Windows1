@@ -1,0 +1,69 @@
+import ProductCard from "./ProductCard";
+
+function App() {
+
+    const products = [
+        {
+            id: 1,
+            name: "Laptop",
+            price: 55000,
+            description: "Dell Laptop"
+        },
+        {
+            id: 2,
+            name: "Mobile",
+            price: 25000,
+            description: "Samsung Mobile"
+        },
+        {
+            id: 3,
+            name: "Headphones",
+            price: 3000,
+            description: "Wireless Headphones"
+        }
+    ];
+
+    return (
+        <div>
+            <h1>Product Store</h1>
+
+            {products.map((product) => (
+                <ProductCard
+                    id={product.id}
+                    name={product.name}
+                    price={product.price}
+                    description={product.description}
+                />
+            ))}
+        </div>
+    );
+}
+
+export default App;
+
+
+--------------
+
+
+function ProductCard(props) {
+
+    function buyProduct() {
+        alert("You bought " + props.name);
+    }
+
+    return (
+        <div>
+            <h2>{props.id}</h2>
+            <h2>{props.name}</h2>
+            <p>Price: ₹{props.price}</p>
+            <p>{props.description}</p>
+
+            <button onClick={buyProduct}>
+                Buy Now
+            </button>
+        </div>
+    );
+}
+
+export default ProductCard;
+

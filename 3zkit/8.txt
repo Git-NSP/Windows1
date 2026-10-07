@@ -1,0 +1,44 @@
+import java.io.*;
+
+public class DataDrivenBatch {
+
+    static double discount(double price, String category) {
+        if (category.equals("electronics"))
+            return price * 0.9;
+        if (category.equals("clothing"))
+            return price * 0.8;
+        return price;
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        PrintWriter pw = new PrintWriter("data.csv");
+        pw.println("500,electronics,450");
+        pw.println("300,clothing,240");
+        pw.println("150,grocery,150");
+        pw.println("1000,electronics,900");
+        pw.close();
+
+        BufferedReader br = new BufferedReader(new FileReader("data.csv"));
+
+        String line;
+
+        while ((line = br.readLine()) != null) {
+
+            String[] data = line.split(",");
+
+            double price = Double.parseDouble(data[0]);
+            String category = data[1];
+            double expected = Double.parseDouble(data[2]);
+
+            double actual = discount(price, category);
+
+            if (actual == expected)
+                System.out.println("PASS");
+            else
+                System.out.println("FAIL");
+        }
+
+        br.close();
+    }
+}

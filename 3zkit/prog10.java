@@ -1,0 +1,27 @@
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
+public class prog10 {
+
+    public static void main(String[] args) throws Exception {
+
+        Runtime.getRuntime().exec("calc.exe");
+        Thread.sleep(2000);
+
+        Robot r = new Robot();
+
+        r.keyPress(KeyEvent.VK_7);
+        r.keyRelease(KeyEvent.VK_7);
+
+        r.keyPress(KeyEvent.VK_ADD);
+        r.keyRelease(KeyEvent.VK_ADD);
+
+        r.keyPress(KeyEvent.VK_5);
+        r.keyRelease(KeyEvent.VK_5);
+
+        r.keyPress(KeyEvent.VK_EQUALS);
+        r.keyRelease(KeyEvent.VK_EQUALS);
+
+        System.out.println("Test executed: 7 + 5 = 12");
+    }
+}
